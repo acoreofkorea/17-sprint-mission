@@ -7,7 +7,6 @@ public class User {
     private final UUID id;
     private final Long createdAt;
     private Long updatedAt;
-
     private String username;
     private String email;
     private String password;
