@@ -1,5 +1,6 @@
 package com.sprint.mission;
 
+import com.sprint.mission.discodeit.entity.Message;
 import com.sprint.mission.discodeit.entity.User;
 import com.sprint.mission.discodeit.entity.Channel;
 import com.sprint.mission.discodeit.entity.ChannelType;
@@ -62,5 +63,25 @@ public class Main {
         System.out.println("관리 타입: " + privateChannel.getType());
         System.out.println("관리 채널: " + privateChannel.getName());
         System.out.println("관리 설명: " + privateChannel.getDescription());
+
+        Message message = new Message("Oh my Buddha!", publicChannel.getId(), user.getId());
+
+        System.out.printf("\n---\nMessage Before\n---\n");
+        System.out.println("전송번호: " + message.getId());
+        System.out.println("공개 식별번호: " + publicChannel.getId().equals(message.getChannelId()));
+        System.out.println("식별번호: " + user.getId().equals(message.getAuthorId()));
+        System.out.println("생성시간: " + message.getCreatedAt());
+        System.out.println("수정시간: " + message.getUpdatedAt());
+        System.out.println("입력사항: " + message.getContent());
+
+        message.update("Oh my Goodness!");
+
+        System.out.printf("\n---\nMessage After\n---\n");
+        System.out.println("전송번호: " + message.getId());
+        System.out.println("공개 식별번호: " + publicChannel.getId().equals(message.getChannelId()));
+        System.out.println("식별번호: " + user.getId().equals(message.getAuthorId()));
+        System.out.println("생성시간: " + message.getCreatedAt());
+        System.out.println("수정시간: " + message.getUpdatedAt());
+        System.out.println("입력사항: " + message.getContent());
     }
 }
